@@ -13,7 +13,13 @@ class TransactionForm extends StatefulWidget {
 class _TransactionFormState extends State<TransactionForm> {
   final _titleController = TextEditingController();
   final _valueController = TextEditingController();
-  late DateTime _selectedDate = DateTime.now();
+  DateTime? _selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDate = DateTime.now();
+  }
 
   _submitform() {
     final title = _titleController.text;
@@ -23,7 +29,7 @@ class _TransactionFormState extends State<TransactionForm> {
       return;
     }
 
-    widget.onSubmit(title, value, _selectedDate);
+    widget.onSubmit(title, value, _selectedDate!);
   }
 
   _showDatePicker() {
@@ -74,7 +80,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     child: Text(
                       _selectedDate == null
                           ? "Nenhuma data selecionada!"
-                          : "Data Selecionada: ${DateFormat("dd/MM/y").format(_selectedDate)}",
+                          : "Data Selecionada: ${DateFormat("dd/MM/y").format(_selectedDate!)}",
                     ),
                   ),
                   TextButton(
