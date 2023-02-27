@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Despesas Pessoais",
+          "My Expenses",
           style: TextStyle(
             fontFamily: 'Poppins',
             fontWeight: FontWeight.bold,

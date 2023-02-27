@@ -60,7 +60,7 @@ class _TransactionFormState extends State<TransactionForm> {
               controller: _titleController,
               onSubmitted: (_) => _submitform(),
               decoration: const InputDecoration(
-                labelText: "Titulo",
+                labelText: "Where did you spend?",
               ),
             ),
             TextField(
@@ -69,7 +69,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   const TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitform(),
               decoration: const InputDecoration(
-                labelText: "Valor (R\$)",
+                labelText: "How much did you spend?",
               ),
             ),
             SizedBox(
@@ -79,14 +79,14 @@ class _TransactionFormState extends State<TransactionForm> {
                   Expanded(
                     child: Text(
                       _selectedDate == null
-                          ? "Nenhuma data selecionada!"
-                          : "Data Selecionada: ${DateFormat("dd/MM/y").format(_selectedDate!)}",
+                          ? "No Date Selected!"
+                          : "Date: ${DateFormat("dd/MM/y").format(_selectedDate!)}",
                     ),
                   ),
                   TextButton(
                     onPressed: _showDatePicker,
                     child: Text(
-                      "Selecionar Data",
+                      "Select Date",
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
@@ -102,7 +102,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 ElevatedButton(
                   onPressed: _submitform,
                   child: const Text(
-                    "Nova Transação",
+                    "Add Transaction",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
