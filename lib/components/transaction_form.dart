@@ -34,11 +34,17 @@ class _TransactionFormState extends State<TransactionForm> {
 
   _showDatePicker() {
     showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2020),
-      lastDate: DateTime.now(),
-    ).then((pickedDate) {
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2020),
+        lastDate: DateTime.now(),
+        builder: (context, child) {
+          return Theme(
+              data: Theme.of(context).copyWith(
+                  colorScheme:
+                      const ColorScheme.light(primary: Colors.blueGrey)),
+              child: child!);
+        }).then((pickedDate) {
       if (pickedDate == null) {
         return;
       }
@@ -94,7 +100,7 @@ class _TransactionFormState extends State<TransactionForm> {
                       child: Text(
                         "Select Date",
                         style: TextStyle(
-                          color: Theme.of(context).primaryColor,
+                          color: Colors.amber[900],
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -107,9 +113,15 @@ class _TransactionFormState extends State<TransactionForm> {
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: _submitform,
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blueGrey),
                     child: const Text(
                       "Add Transaction",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ],

@@ -18,7 +18,7 @@ class ExpensesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
         colorScheme: Theme.of(context).colorScheme,
         fontFamily: 'Poppins',
       ),
@@ -84,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
           fontWeight: FontWeight.bold,
         ),
       ),
+      backgroundColor: Colors.blueGrey,
       actions: <Widget>[
         IconButton(
           onPressed: () => _openTransactionFormModal(context),
@@ -113,9 +114,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _openTransactionFormModal(context),
-        child: const Icon(Icons.add),
+        backgroundColor: Colors.amber[700],
+        icon: const Icon(Icons.add),
+        label: const Text(
+          "New Transaction",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
