@@ -17,15 +17,15 @@ class TransactionList extends StatelessWidget {
             children: <Widget>[
               const SizedBox(height: 30),
               const Text(
-                'Nenhuma Transação Cadastrada!',
+                'No Transactions...',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 22,
                 ),
               ),
-              const SizedBox(height: 35),
+              const SizedBox(height: 50),
               SizedBox(
-                height: 200,
+                height: 150,
                 child: Image.asset(
                   'assets/img/waiting.png',
                   fit: BoxFit.cover,
